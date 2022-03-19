@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import 'react-native-gesture-handler';
 import { Text, View } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import * as Font from 'expo-font';
 import Feather from '@expo/vector-icons/Feather'
 import { useFonts, Nunito_400Regular as NunitoRegular, Nunito_700Bold as NunitoBold } from '@expo-google-fonts/nunito';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import Navigator from './src/navigation';
+import { LogBox } from 'react-native-web';
+
+LogBox.ignoreLogs(['VirtualizedLists']);
 
 // The theme we'll be using for our navigator
 const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: '#FAFAFA'
+    background: '#fafafa'
   },
 };
 
@@ -44,9 +49,7 @@ export default function App() {
   }
   return (
     <NavigationContainer theme={MyTheme}>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text>Let's do this 🔥🚀</Text>
-      </View>
+      <Navigator />
     </NavigationContainer>
   );
 }
